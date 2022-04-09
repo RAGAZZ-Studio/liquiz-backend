@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
 	r := gin.Default()
 
 	public := r.Group("/api")
@@ -19,5 +21,5 @@ func main() {
 	protected.Use(middlewares.JwtAuthMiddleware())
 	protected.GET("/user", controllers.CurrentUser)
 
-	r.Run(":8080")
+	r.Run(":" + port)
 }
