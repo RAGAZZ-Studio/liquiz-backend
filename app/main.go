@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"github.com/RAGAZZ-Studio/liquiz-backend/app/controllers"
 	"github.com/RAGAZZ-Studio/liquiz-backend/app/middlewares"
 
