@@ -2,10 +2,10 @@ package models
 
 import (
 	"fmt"
-	"log"
+	// "log"
 	"os"
 
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -13,11 +13,11 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() *gorm.DB {
-	err := godotenv.Load(".env")
+	// err := godotenv.Load(".env")
 
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
+	// if err != nil {
+	// 	log.Fatalf("Error loading .env file")
+	// }
 
 	DbHost := os.Getenv("DB_HOST")
 	DbUser := os.Getenv("DB_USERNAME")
