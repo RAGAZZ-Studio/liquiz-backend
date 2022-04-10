@@ -11,10 +11,6 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 
-	if port == "" {
-		port = "8080"
-	}
-
 	r := gin.Default()
 
 	public := r.Group("/api")
