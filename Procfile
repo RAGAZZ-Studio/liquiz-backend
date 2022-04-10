@@ -1,2 +1,2 @@
-web: bin/liquiz-backend
+web: liquiz-backend
 heroku config:set GOVERSION=go1.17
