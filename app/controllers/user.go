@@ -73,8 +73,13 @@ func Register(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+    return
 	}
 
 	c.JSON(http.StatusOK, gin.H{"message": "registration success"})
+
+}
+
+func AddPoints(c *gin.Context) {
 
 }
