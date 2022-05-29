@@ -2,9 +2,11 @@ package main
 
 import (
 	"os"
+
 	"github.com/RAGAZZ-Studio/liquiz-backend/app/controllers"
 	"github.com/RAGAZZ-Studio/liquiz-backend/app/middlewares"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,5 +24,6 @@ func main() {
 	protected.Use(middlewares.JwtAuthMiddleware())
 	protected.GET("/user", controllers.CurrentUser)
 
+  r.Use(cors.Default())
 	r.Run(":" + port)
 }
