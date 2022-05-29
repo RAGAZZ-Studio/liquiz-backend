@@ -14,6 +14,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	r := gin.Default()
+  r.Use(cors.Default())
 
 	public := r.Group("/api")
 
@@ -24,6 +25,5 @@ func main() {
 	protected.Use(middlewares.JwtAuthMiddleware())
 	protected.GET("/user", controllers.CurrentUser)
 
-  r.Use(cors.Default())
 	r.Run(":" + port)
 }
