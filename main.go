@@ -5,16 +5,19 @@ import (
 
 	"github.com/RAGAZZ-Studio/liquiz-backend/app/controllers"
 	"github.com/RAGAZZ-Studio/liquiz-backend/app/middlewares"
+	"github.com/RAGAZZ-Studio/liquiz-backend/app/models"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	models.ConnectDatabase()
+
 	port := os.Getenv("PORT")
 
 	r := gin.Default()
-  r.Use(cors.Default())
+	r.Use(cors.Default())
 
 	public := r.Group("/api")
 

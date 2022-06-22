@@ -21,9 +21,7 @@ func GetUserByID(uid uint) (User, error) {
 
 	var u User
 
-	db := ConnectDatabase()
-
-	if err := db.First(&u, uid).Error; err != nil {
+	if err := DB.First(&u, uid).Error; err != nil {
 		return u, errors.New("user not found")
 	}
 
@@ -47,9 +45,7 @@ func LoginCheck(username string, password string) (string, error) {
 
 	u := User{}
 
-	db := ConnectDatabase()
-
-	err = db.Model(User{}).Where("username = ?", username).Take(&u).Error
+	err = DB.Model(User{}).Where("username = ?", username).Take(&u).Error
 
 	if err != nil {
 		return "", err
@@ -75,8 +71,7 @@ func (u *User) SaveUser() (*User, error) {
 
 	var err error
 
-	db := ConnectDatabase()
-	err = db.Create(&u).Error
+	err = DB.Create(&u).Error
 	if err != nil {
 		return &User{}, err
 	}
